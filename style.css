@@ -1,0 +1,46 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100vh; 
+}
+
+body {
+    margin: 0;
+    background-color: whitesmoke;
+}
+
+h1 {
+    color: greenyellow;
+    text-align: center;
+}
+
+.gameboard {
+    margin: 25px, auto;
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-gap: 15px;
+    justify-content: center;
+
+}
+
+.game-info-block {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+}
+
+.card {
+    position: relative;
+    height: 175px;
+    width: 125px;
+    background-color: black;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 25px;
+}
