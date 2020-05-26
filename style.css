@@ -8,7 +8,7 @@ html {
 
 body {
     margin: 0;
-    background-color: whitesmoke;
+    background-color: #1E362F;
 }
 
 h1 {
@@ -19,7 +19,7 @@ h1 {
 .gameboard {
     margin: 25px, auto;
     display: grid;
-    grid-template-columns: repeat(4, auto);
+    grid-template-columns: repeat(5, auto);
     grid-gap: 15px;
     justify-content: center;
 
@@ -35,12 +35,13 @@ h1 {
     position: relative;
     height: 175px;
     width: 125px;
-    background-color: black;
+    background-color: #750634;
+    border-radius: 10px;
 }
 
 footer {
     display: flex;
     justify-content: center;
     text-align: center;
-    padding: 25px;
+    padding: 50px;
 }
