@@ -16,11 +16,9 @@ h1 {
     text-align: center;
 }
 
-.gameboard {
+.gameinfo {
     margin: 25px, auto;
     display: grid;
-    /* grid-template-columns: repeat(5, auto);
-    grid-gap: 5px; */
     justify-content: center;
 
 }
