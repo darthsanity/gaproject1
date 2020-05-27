@@ -19,8 +19,8 @@ h1 {
 .gameboard {
     margin: 25px, auto;
     display: grid;
-    grid-template-columns: repeat(5, auto);
-    grid-gap: 25px;
+    /* grid-template-columns: repeat(5, auto);
+    grid-gap: 5px; */
     justify-content: center;
 
 }
@@ -30,15 +30,16 @@ h1 {
     display: flex;
     justify-content: space-between;
     color: whitesmoke;
+    margin-bottom: 20px;
 }
 
 .board {
     margin: 25px, auto;
     display: grid;
-    height: 100vh;
+    height: 500px;
     width: 100%;
     grid-template-columns: repeat(5, auto);
-    grid-gap: 25px;
+    grid-gap: 15px;
     justify-content: center;
     perspective: 600px;
 }
@@ -47,13 +48,13 @@ h1 {
     width: 100px;
     height: 135px;
     position: relative;
-    transition: transform 1s;
+    transition: transform .5s;
     transform-style: preserve-3d;
     backface-visibility: hidden;
     cursor: pointer;
 }
 
-.card.is-flipped {
+.card.flip {
     transform: rotateY(180deg);
 }
 /* much props to https://3dtransforms.desandro.com/card-flip for helping me figure out the animation here */
@@ -69,11 +70,11 @@ h1 {
 
 .card-back {
     background-color: #750634; 
-    transform: rotateY(180deg);
 }
 
 .card-front {
     background-color: black;
+    transform: rotateY(180deg);
 }
 
 
