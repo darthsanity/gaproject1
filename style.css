@@ -72,6 +72,7 @@ h1 {
 
 .card-front {
     background-color: black;
+    overflow: hidden;
     transform: rotateY(180deg);
 }
 
