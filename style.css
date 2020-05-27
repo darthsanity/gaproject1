@@ -20,7 +20,7 @@ h1 {
     margin: 25px, auto;
     display: grid;
     grid-template-columns: repeat(5, auto);
-    grid-gap: 15px;
+    grid-gap: 25px;
     justify-content: center;
 
 }
@@ -29,19 +29,58 @@ h1 {
     grid-column: 1 / -1;
     display: flex;
     justify-content: space-between;
+    color: whitesmoke;
+}
+
+.board {
+    margin: 25px, auto;
+    display: grid;
+    height: 100vh;
+    width: 100%;
+    grid-template-columns: repeat(5, auto);
+    grid-gap: 25px;
+    justify-content: center;
+    perspective: 600px;
 }
 
 .card {
+    width: 100px;
+    height: 135px;
     position: relative;
-    height: 175px;
-    width: 125px;
-    background-color: #750634;
-    border-radius: 10px;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    cursor: pointer;
 }
 
-footer {
+.card.is-flipped {
+    transform: rotateY(180deg);
+}
+/* much props to https://3dtransforms.desandro.com/card-flip for helping me figure out the animation here */
+
+
+.cardface {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    border-style: solid;
+}
+
+.card-back {
+    background-color: #750634; 
+    transform: rotateY(180deg);
+}
+
+.card-front {
+    background-color: black;
+}
+
+
+/* footer {
     display: flex;
-    justify-content: center;
+    flex-dirction: column;
+    justify-content: flex-end;
     text-align: center;
     padding: 50px;
-}
+} */
