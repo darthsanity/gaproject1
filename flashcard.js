@@ -1,10 +1,8 @@
 
 //build - adding my arrays to start game logic
-
-const cardArray = ["images\bunny1.jpg", "images\bunny2.jpg", "images\bunny3.jpg", "images\bunny4.jpg", "images\bunny5.jpg", "images\bunny5.jpg", "images\bunny6.jpg", "images\bunny7.jpg", "images\bunny8.jpg", "images\bunny9.jpg", "images\bunny10.jpg"];
+const cardArray = [`src="images\bunny1.jpg" `, `src="images\bunny1.jpg" `, `src="images\bunny2.jpg" `, `src="images\bunny2.jpg" `, `src="images\bunny3.jpg" `, `src="images\bunny3.jpg" `, `src="images\bunny4.jpg" `, `src="images\bunny4.jpg" `, `src="images\bunny5.jpg" `, `src="images\bunny5.jpg" `, `src="images\bunny6.jpg" `, `src="images\bunny6.jpg" `, `src="images\bunny7.jpg" `, `src="images\bunny7.jpg" `, `src="images\bunny8.jpg" `, `src="images\bunny8.jpg" `, `src="images\bunny9.jpg" `, `src="images\bunny9.jpg" `, `src="images\bunny10.jpg" `, `src="images\bunny10.jpg" `];
 //the below arrays are to hold cards as they are chosen/matched
 let chosenCards = [];
-let chosenCardsId = [];
 //for scoring
 const cardsMatched = [];
 
@@ -37,21 +35,22 @@ function checkMatch() {
       chosenCards[0].parentElement.parentElement.classList.toggle(`flip`);
     chosenCards[1].parentElement.parentElement.classList.toggle(`flip`);
     chosenCards = [];
-    },3000
+    },2000
     )
   };
 }
-//slightly stuck till I get my images - will try to find some placehold images easily swapped out
 
 //shuffle logic for game start - fisher/yates algorithm
-// shuffleCards(cardArray) {
-//     for (let i = cardArray.length -1; i > 0; i--) {
-//         let randIndex = Math.floor(Math.random() * (i = 1));
-//         cardArray[randIndex].style.order = i;
-//         cardArray[i].style.order = randIndex;
-//     }
-// };
-
+function shuffleCards() {
+    for (let i = cardArray.length -1; i > 0; i--) {
+        let randIndex = Math.floor(Math.random() * (i = 1));
+        cardArray[randIndex].src = i;
+        cardArray[i].src = randIndex;
+        chosenCards[];
+    } return cardArray;
+  };
+ let button = document.querySelector(`.shuffle`);
+ button.addEventListener(`click`, shuffleCards());
 //scoring
     //matches will keep track of the number of matches made till all are made
     //flips keep track of how many times you have flipped cards to try and find a match
