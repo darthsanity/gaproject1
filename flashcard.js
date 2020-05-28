@@ -9,13 +9,16 @@ let chosenCardsId = [];
 const cardsMatched = [];
 
 //const for card flip
-const cards = document.querySelectorAll('.card');
+const cards = document.querySelectorAll('.cardimage');
 //working flip card function
 //took several iterations to find a flip card that worked as desired
 function flipCard() {
-  this.classList.toggle('flip');
-  chosenCards.push(cardArray[images.name]);
-    chosenCardsId.push(cardId);
+  this.parentElement.parentElement.classList.toggle('flip');
+  chosenCards.push(this);
+  console.log(chosenCards[0].parentElement.parentElement);
+  if (chosenCards.length === 2) {
+    checkMatch();
+  }
 }
 cards.forEach(card => card.addEventListener('click', flipCard));
 
@@ -24,12 +27,19 @@ let matches = document.querySelector("#matches");
 
 
 function checkMatch() {
-  const firstFlip = chosenCardsId[0];
-  cont secondFlip = chosenCardsId[1];
+  const firstFlip = chosenCards[0].src;
+  const secondFlip = chosenCards[1].src;
   if (firstFlip === secondFlip) {
-    //need a function here
-  }
-  else if ()
+   console.log("you have a match");
+   chosenCards = [];
+  } else {
+    setTimeout(function () {
+      chosenCards[0].parentElement.parentElement.classList.toggle(`flip`);
+    chosenCards[1].parentElement.parentElement.classList.toggle(`flip`);
+    chosenCards = [];
+    },3000
+    )
+  };
 }
 //slightly stuck till I get my images - will try to find some placehold images easily swapped out
 
