@@ -1,7 +1,7 @@
 
 //build - adding my arrays to start game logic
 
-const cardArray = [];
+const cardArray = ["images\bunny1.jpg", "images\bunny2.jpg", "images\bunny3.jpg", "images\bunny4.jpg", "images\bunny5.jpg", "images\bunny5.jpg", "images\bunny6.jpg", "images\bunny7.jpg", "images\bunny8.jpg", "images\bunny9.jpg", "images\bunny10.jpg"];
 //the below arrays are to hold cards as they are chosen/matched
 let chosenCards = [];
 let chosenCardsId = [];
@@ -14,9 +14,23 @@ const cards = document.querySelectorAll('.card');
 //took several iterations to find a flip card that worked as desired
 function flipCard() {
   this.classList.toggle('flip');
+  chosenCards.push(cardArray[images.name]);
+    chosenCardsId.push(cardId);
 }
 cards.forEach(card => card.addEventListener('click', flipCard));
 
+let flips = document.querySelector("#flips");
+let matches = document.querySelector("#matches");
+
+
+function checkMatch() {
+  const firstFlip = chosenCardsId[0];
+  cont secondFlip = chosenCardsId[1];
+  if (firstFlip === secondFlip) {
+    //need a function here
+  }
+  else if ()
+}
 //slightly stuck till I get my images - will try to find some placehold images easily swapped out
 
 //shuffle logic for game start - fisher/yates algorithm
