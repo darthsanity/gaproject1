@@ -20,10 +20,10 @@ function flipCard() {
 }
 cards.forEach(card => card.addEventListener('click', flipCard));
 
-let flips = document.getElementById(`#flips`);
+let flips = document.querySelector(`#flips`).textConent;
 function flipCounter() {
   flips++;
-  flips.innerHTML = flips;
+  flips.textContent = flips;
   console.log(flips);
 }
 let matches = document.getElementById(`#matches`);
