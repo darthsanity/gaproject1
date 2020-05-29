@@ -1,6 +1,5 @@
 
-//build - adding my arrays to start game logic
-const cardArray = [`src="images\bunny1.jpg" `, `src="images\bunny1.jpg" `, `src="images\bunny2.jpg" `, `src="images\bunny2.jpg" `, `src="images\bunny3.jpg" `, `src="images\bunny3.jpg" `, `src="images\bunny4.jpg" `, `src="images\bunny4.jpg" `, `src="images\bunny5.jpg" `, `src="images\bunny5.jpg" `, `src="images\bunny6.jpg" `, `src="images\bunny6.jpg" `, `src="images\bunny7.jpg" `, `src="images\bunny7.jpg" `, `src="images\bunny8.jpg" `, `src="images\bunny8.jpg" `, `src="images\bunny9.jpg" `, `src="images\bunny9.jpg" `, `src="images\bunny10.jpg" `, `src="images\bunny10.jpg" `];
+
 //the below arrays are to hold cards as they are chosen/matched
 let chosenCards = [];
 //for scoring
@@ -16,18 +15,29 @@ function flipCard() {
   console.log(chosenCards[0].parentElement.parentElement);
   if (chosenCards.length === 2) {
     checkMatch();
+    flipCounter();
   }
 }
 cards.forEach(card => card.addEventListener('click', flipCard));
 
-let flips = document.querySelector("#flips");
-let matches = document.querySelector("#matches");
-
+let flips = document.getElementById(`#flips`);
+function flipCounter() {
+  flips++;
+  flips.innerHTML = flips;
+  console.log(flips);
+}
+let matches = document.getElementById(`#matches`);
+function matchCounter(){ 
+  matches++;   
+  matches.innterHTML = matches; 
+  console.log(matches);
+}
 
 function checkMatch() {
   const firstFlip = chosenCards[0].src;
   const secondFlip = chosenCards[1].src;
   if (firstFlip === secondFlip) {
+    matchCounter();
    console.log("you have a match");
    chosenCards = [];
   } else {
@@ -41,17 +51,37 @@ function checkMatch() {
 }
 
 //shuffle logic for game start - fisher/yates algorithm
-function shuffleCards() {
-    for (let i = cardArray.length -1; i > 0; i--) {
-        let randIndex = Math.floor(Math.random() * (i = 1));
-        cardArray[randIndex].src = i;
-        cardArray[i].src = randIndex;
-        chosenCards[];
-    } return cardArray;
-  };
- let button = document.querySelector(`.shuffle`);
- button.addEventListener(`click`, shuffleCards());
-//scoring
+// class cardimage {
+//   constructor(cardimage) {
+//     this.cardArray = cardimage.src
+// };
+
+let shuffleCards = function() {
+  for (let i = document.images.length - 1; i > 0; i--) {
+    let randIndex = Math.floor(Math.random() * (i + 1));
+    document.images[randIndex] = i;
+    document.images[i] = randIndex;
+  }
+};
+
+// function shuffleCards() {
+//     for (let i = cardArray.length -1; i > 0; i--) {
+//         let randIndex = Math.floor(Math.random() * (i = 1));
+//         cardArray[randIndex].src = i;
+//         cardArray[i].src = randIndex;
+//         chosenCards[];
+//     } return cardArray;
+//   };
+// function shuffleCards () {
+//   for (let i = cards.length -1; i > 0; i--) {
+//     let randIndex = Math.floor(Math.random() * (i = 1));
+//     randIndex = i;
+//     cards.src = randIndex;
+//   } return cards.src;
+// }
+
+//  const button = document.getElementById(`#replay`);
+//  button.addEventListener(`click`, shuffleCards());
     //matches will keep track of the number of matches made till all are made
     //flips keep track of how many times you have flipped cards to try and find a match
     //a win = all cards matched
