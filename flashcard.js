@@ -20,16 +20,18 @@ function flipCard() {
 }
 cards.forEach(card => card.addEventListener('click', flipCard));
 
-let flips = document.querySelector(`#flips`).textConent;
+let flips = 0;
 function flipCounter() {
+  let cardFlips = document.querySelector(`#flips`)
   flips++;
-  flips.textContent = flips;
-  console.log(flips);
+  cardFlips.innerHTML = flips;
 }
-let matches = document.getElementById(`#matches`);
+
+let matches = 0
 function matchCounter(){ 
+  let countMatches = document.querySelector(`#matches`);
   matches++;   
-  matches.innterHTML = matches; 
+  countMatches.innerHTML = matches; 
   console.log(matches);
 }
 
@@ -56,13 +58,20 @@ function checkMatch() {
 //     this.cardArray = cardimage.src
 // };
 
+
 let shuffleCards = function() {
-  for (let i = document.images.length - 1; i > 0; i--) {
-    let randIndex = Math.floor(Math.random() * (i + 1));
-    document.images[randIndex] = i;
-    document.images[i] = randIndex;
+  console.log("shuffling");
+  for (let i = document.images.length - 1; i >= 0; i--) {
+    let randIndex = Math.floor(Math.random() * document.images.length);
+
+    let temp = document.images[i].src;
+    document.images[i].src = document.images[randIndex].src;
+    document.images[randIndex].src = temp;
   }
+  console.log(document.images);
 };
+shuffleCards();
+
 
 // function shuffleCards() {
 //     for (let i = cardArray.length -1; i > 0; i--) {
@@ -80,8 +89,14 @@ let shuffleCards = function() {
 //   } return cards.src;
 // }
 
-//  const button = document.getElementById(`#replay`);
-//  button.addEventListener(`click`, shuffleCards());
+ const button = document.getElementById(`replay`);
+ button.addEventListener(`click`, function() {
+   flips = 0;
+   document.querySelector(`#flips`).innerHTML = 0;
+   matches = 0;
+   document.querySelector(`#matches`).innerHTML = 0;
+   shuffleCards();
+ });
     //matches will keep track of the number of matches made till all are made
     //flips keep track of how many times you have flipped cards to try and find a match
     //a win = all cards matched
